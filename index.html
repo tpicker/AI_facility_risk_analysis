@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Assess sixteen decision factors for an AI facility, explore a live risk heat map, and print or save your assessment as a PDF.">
+  <meta name="description" content="Assess sixteen decision factors for your assigned U.S. state, explore a live risk heat map, and print or save this assessment as a PDF.">
   <meta name="theme-color" content="#12385f">
-  <title>AI Facility Risk Analysis</title>
+  <title>AI Facility Risk Analysis — U.S. State</title>
   <style>
 
 :root{--navy:#12385f;--ink:#17324d;--text:#263f54;--muted:#526b80;--border:#d6e0e8;--paper:#f3f6f9;--soft:#edf4fa;--teal:#006d8f;--input:#fff;--focus:#1d83cf;color-scheme:light;font-family:Arial,Helvetica,sans-serif}
@@ -64,8 +64,8 @@ h1{font-size:clamp(26px,3vw,34px);font-weight:700;line-height:1.2;margin:0 0 10p
 .location-field,.metric{min-width:0;padding:17px 16px;background:#fff;border:1px solid var(--border);border-radius:12px}
 .overview-divider{display:none}
 .location-field label,.metric>span{display:block;color:#456176;font-size:12px;font-weight:700;margin-bottom:8px}
-.location-field input{width:100%;min-width:0;padding:9px 10px;height:43px;background:#fff;color:var(--ink);border:1px solid #aebfce;border-radius:7px;font-size:16px}
-.location-field input::placeholder{font-size:14px;color:#61778b;opacity:1}
+.location-field select{width:100%;min-width:0;padding:9px 10px;height:43px;background:#fff;color:var(--ink);border:1px solid #aebfce;border-radius:7px;font-size:16px}
+
 .metric>strong{display:block;font-size:28px;line-height:1.3;font-weight:700;color:var(--navy)}
 .metric b{font-weight:700}
 .metric strong small{font-size:14px;font-weight:400;color:var(--muted)}
@@ -197,7 +197,7 @@ dialog>p{font-size:13px;line-height:1.75;color:var(--muted)}
 .noscript{background:#fff9ed;border:1px solid #d9b983;padding:22px;margin:16px;text-align:center}
 .print-report{display:none}
 @media(max-width:1100px){#factor-cards{grid-template-columns:1fr}.factor-score-row{gap:12px}.score-control select{width:95px}.hero-count{display:none}.assessment-panel{padding:20px}.category-tabs{grid-template-columns:1fr 1fr}.category-tab{font-size:12px}.input-key{display:none}}
-@media(max-width:800px){.workspace-layout{grid-template-columns:1fr}.insights-panel{position:static;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}.priority-card{margin-top:0}.heatmap-card{grid-row:span 2}.sidebar-note{margin-top:0}.assessment-overview{grid-template-columns:repeat(3,minmax(0,1fr))}.location-field{grid-column:1/-1}.location-field input{max-width:100%}.workspace-actions{flex-wrap:wrap}.print-scope{display:none}.category-tabs{grid-template-columns:repeat(4,minmax(0,1fr))}#factor-cards{grid-template-columns:1fr}.factor-score-row{gap:8px}.score-control select{width:77px}.factor-rank{font-size:10px}}
+@media(max-width:800px){.workspace-layout{grid-template-columns:1fr}.insights-panel{position:static;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}.priority-card{margin-top:0}.heatmap-card{grid-row:span 2}.sidebar-note{margin-top:0}.assessment-overview{grid-template-columns:repeat(3,minmax(0,1fr))}.location-field{grid-column:1/-1}.location-field select{max-width:100%}.workspace-actions{flex-wrap:wrap}.print-scope{display:none}.category-tabs{grid-template-columns:repeat(4,minmax(0,1fr))}#factor-cards{grid-template-columns:1fr}.factor-score-row{gap:8px}.score-control select{width:77px}.factor-rank{font-size:10px}}
 @media(max-width:620px){.page-shell{padding:12px 12px 25px}.intro{padding:22px 20px}.intro-copy{font-size:14px}.intro .eyebrow{font-size:10px}h1{font-size:27px}.resource-toolbar{margin:15px 0 12px;align-items:start}.header-actions{width:100%}.header-actions .text-button{font-size:12px;flex:1}.session-note{font-size:11px}.workspace-bar{align-items:start;gap:11px;margin-bottom:15px}.location-tabs{width:100%;gap:8px}.location-tab{flex:1;padding:9px 11px;font-size:13px}.workspace-actions{width:100%}.workspace-actions .outline-button{width:100%}.assessment-overview{gap:9px;margin-bottom:15px}.location-field,.metric{padding:14px 11px;border-radius:10px}.metric>span{font-size:11px;min-height:33px;margin-bottom:5px}.metric>strong{font-size:26px}.metric strong small{font-size:11px}.metric>small{font-size:10px;line-height:1.6}.assessment-panel{padding:18px 14px}.section-heading h2{font-size:20px}.category-tabs{grid-template-columns:1fr 1fr}.category-tab{font-size:12px;min-height:42px;padding:9px 6px}.category-description{font-size:11px;gap:8px}.category-description span:last-child{font-size:10px}#factor-cards{grid-template-columns:1fr;gap:11px}.factor-card{padding:16px 15px}.factor-score-row{gap:9px}.score-control select{width:80px;min-height:44px}.factor-title h3{font-size:15px}.factor-definition{font-size:12px}.risk-number{font-size:25px}.risk-level{font-size:10px}.category-footer{gap:10px;align-items:start}.category-footer>span{font-size:10px;max-width:50%;line-height:1.7}.category-footer .primary-button{font-size:11px;padding:10px 12px;min-height:42px}.insights-panel{grid-template-columns:1fr;gap:15px}.heatmap-card{grid-row:auto;padding:22px}.heatmap-layout{max-width:320px;margin:auto}.heatmap-cell{font-size:14px}.heatmap{gap:5px}.heatmap-impact{margin-left:22px}.insight-title h2{font-size:18px}.heatmap-help,.score-key>span{font-size:12px}.score-key{gap:10px 15px}.priority-card{padding:22px}.priority-name,.priority-empty p{font-size:13px}.priority-empty span{font-size:12px}.sidebar-note{font-size:12px}.page-footer{font-size:11px;gap:12px}.page-footer .text-button{font-size:11px}dialog{padding:22px}.guide-columns{grid-template-columns:1fr;gap:12px}.definition-table th,.definition-table td{font-size:11px;padding:10px 6px}}
 @media(max-width:360px){.factor-score-row{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:8px}.score-control select{width:100%}.score-equals{display:none}.risk-result{grid-column:1/-1}.factor-top{gap:7px}.factor-number{font-size:10px}.factor-title{gap:5px}.risk-level{font-size:11px}.metric>span{font-size:10px}.metric>strong{font-size:24px}.category-description span:first-child{max-width:72%}.location-tab{padding:10px 8px;gap:5px;font-size:12px}.tab-count{font-size:10px}}
 @media(prefers-reduced-motion:no-preference){button,.progress-track div{transition:background .15s,border-color .15s,width .2s}.toast{transition:opacity .2s,transform .2s}}
@@ -240,6 +240,7 @@ dialog>p{font-size:13px;line-height:1.75;color:var(--muted)}
   .print-report,.print-report *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 
+.assessment-scope{display:flex;align-items:center;gap:10px;min-height:43px;padding:10px 14px;background:var(--navy);color:#fff;border-radius:8px;font-size:13px}.assessment-scope .tab-count{background:#ffffff20;color:#fff}.assessment-scope>span:first-child{font-size:16px}
 </style>
   <script type="module">
 /** All assessment data is held by the caller in browser memory. */
@@ -320,7 +321,8 @@ function scoreLevel(score) {
 /**
  * Compute risk = likelihood × impact. Unscored factors are excluded from the
  * summary and ranks. Heatmap rows run from likelihood 5 to 1; columns from
- * impact 1 to 5. Tied scores share a competition rank.
+ * impact 1 to 5. Priority ranks are unique; equal scores are ordered by higher
+ * impact, then likelihood, then the original factor order.
  */
 function calculateAssessment(assessment) {
   const rows = FACTORS.map(factor => {
@@ -339,9 +341,10 @@ function calculateAssessment(assessment) {
   });
 
   const scored = rows.filter(row => row.score !== null);
+  const priorityOrder = [...scored].sort((first, second) => second.score - first.score || second.impact - first.impact || second.likelihood - first.likelihood);
+  priorityOrder.forEach((row, index) => { row.rank = index + 1; });
   const heatmap = Array.from({ length: 5 }, () => Array(5).fill(0));
   for (const row of scored) {
-    row.rank = scored.filter(other => other.score > row.score).length + 1;
     heatmap[5 - row.likelihood][row.impact - 1] += 1;
   }
 
@@ -358,12 +361,12 @@ function calculateAssessment(assessment) {
 const $=id=>document.getElementById(id);
 const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const palettes={environmental:{color:'#44725c',tint:'#e5eee5',description:'Consider the effects on natural systems and resources.'},'social-policy':{color:'#556e99',tint:'#e7edf5',description:'Consider communities, policy, and the people behind the project.'},economic:{color:'#907344',tint:'#f1ece1',description:'Consider investment, ongoing costs, and financial returns.'},technical:{color:'#78678f',tint:'#eee9f4',description:'Consider resources, infrastructure, and dependable energy.'}};
-let assessments={state:createAssessment(),country:createAssessment()};
-let selectedLocation='state';
+const LOCATION_LABEL="U.S. State";
+let assessment=createAssessment();
 let selectedGroup=FACTOR_GROUPS[0].id;
 let selectedCell=null;
 let toastTimer;
-const current=()=>assessments[selectedLocation];
+const current=()=>assessment;
 const result=()=>calculateAssessment(current());
 const severity=score=>score<=4?'Low':score<=9?'Moderate':score<=14?'High':'Critical';
 const groupPalette=id=>palettes[id]??palettes.environmental;
@@ -401,7 +404,7 @@ function updateResults(){
  $('critical-count').textContent=summary.criticalCount;
  $('average-score').textContent=summary.averageScore===null?'—':summary.averageScore.toFixed(1);
  $('progress-fill').style.width=`${summary.count/16*100}%`;
- for(const key of ['state','country'])$(key+'-count').textContent=`${calculateAssessment(assessments[key]).count}/16`;
+ $('scope-count').textContent=`${summary.count}/16`;
  const groupRows=summary.rows.filter(row=>row.groupId===selectedGroup);
  const groupCount=groupRows.filter(row=>row.score!==null).length;
  $('category-progress').textContent=`${groupCount} of 4 scored`;
@@ -441,20 +444,13 @@ function renderHeatmap(summary){
 }
 
 function renderPriorities(summary){
- const top=summary.rows.filter(row=>row.score!==null).sort((a,b)=>b.score-a.score).slice(0,5);
+ const top=summary.rows.filter(row=>row.rank!==null).sort((first,second)=>first.rank-second.rank).slice(0,5);
  $('priority-list').innerHTML=top.length?`<ol class="priority-items">${top.map(row=>`<li class="priority-item"><span class="priority-rank">${row.rank}.</span><span class="priority-name">${escape(row.name)}</span><span class="priority-score" aria-label="Risk score ${row.score}">${row.score}</span></li>`).join('')}</ol>`:'<div class="priority-empty"><span class="empty-symbol" aria-hidden="true"><i></i><i></i><i></i></span><p>A clearer picture starts here.</p><span>Score a factor to see your<br>highest-priority risks.</span></div>';
 }
 
-function switchLocation(location){
- selectedLocation=location;selectedCell=null;
- for(const tab of document.querySelectorAll('.location-tab')){
-  const active=tab.dataset.location===location;
-  tab.classList.toggle('active',active);tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;
- }
- $('assessment').setAttribute('aria-labelledby',location+'-tab');
- $('location-label').textContent=location==='state'?'Assigned U.S. state':'Assigned country';
- $('location-name').placeholder=location==='state'?'Enter your state':'Enter your country';
- $('location-name').value=current().location;
+function resetAssessment(){
+ assessment=createAssessment();selectedCell=null;
+ $('location-name').value='';
  renderCards();
 }
 
@@ -464,7 +460,7 @@ function renderDefinitions(){
 
 function renderPrintReport(){
  const summary=result();
- const locationType=selectedLocation==='state'?'U.S. state':'Country';
+ const locationType=LOCATION_LABEL;
  let table='';
  for(const group of FACTOR_GROUPS){
   table+=`<tbody class="print-category"><tr class="print-group"><th colspan="6" scope="colgroup">${escape(group.name)}</th></tr>`;
@@ -476,7 +472,7 @@ function renderPrintReport(){
  let heatmap='<thead><tr><th scope="col">Likelihood ↓ / Impact →</th>'+[1,2,3,4,5].map(n=>`<th scope="col">${n}</th>`).join('')+'</tr></thead><tbody>';
  for(let row=0;row<5;row++)heatmap+=`<tr><th scope="row">${5-row}</th>`+summary.heatmap[row].map((count,col)=>`<td class="print-severity ${severity((5-row)*(col+1)).toLowerCase()}">${count}</td>`).join('')+'</tr>';
  heatmap+='</tbody>';
- $('print-report').innerHTML=`<header class="print-heading"><p>AI ENERGY LAB · RISK ANALYSIS</p><h1>AI facility risk assessment</h1><h2>${locationType}: ${escape(current().location.trim()||'Not specified')}</h2></header><div class="print-summary"><span><strong>${summary.count}/16</strong> factors scored</span><span><strong>${summary.criticalCount}</strong> critical risks</span><span>Average score: <strong>${summary.averageScore?.toFixed(1)??'—'}</strong> / 25</span></div><table class="print-factors"><colgroup><col class="print-factor-column"><col><col><col><col><col></colgroup><thead><tr><th scope="col">Decision factor and definition</th><th scope="col">Likelihood</th><th scope="col">Impact</th><th scope="col">Risk score</th><th scope="col">Risk level</th><th scope="col">Priority rank</th></tr></thead>${table}</table><div class="print-insights"><section><h3>Risk frequency heat map</h3><table class="print-heatmap">${heatmap}</table></section><section class="print-guide"><h3>Reading the results</h3><p>Risk score = Likelihood × Impact.</p><p>Low: 1–4 · Moderate: 5–9<br>High: 10–14 · Critical: 15–25</p><p>Heat map numbers count scored factors.<br>Priority 1 is the highest score; ties share a rank.</p><p>— indicates an incomplete result.</p></section></div>`;
+ $('print-report').innerHTML=`<header class="print-heading"><p>AI ENERGY LAB · RISK ANALYSIS</p><h1>AI facility risk assessment — ${locationType}</h1><h2>${locationType}: ${escape(current().location.trim()||'Not specified')}</h2></header><div class="print-summary"><span><strong>${summary.count}/16</strong> factors scored</span><span><strong>${summary.criticalCount}</strong> critical risks</span><span>Average score: <strong>${summary.averageScore?.toFixed(1)??'—'}</strong> / 25</span></div><table class="print-factors"><colgroup><col class="print-factor-column"><col><col><col><col><col></colgroup><thead><tr><th scope="col">Decision factor and definition</th><th scope="col">Likelihood</th><th scope="col">Impact</th><th scope="col">Risk score</th><th scope="col">Risk level</th><th scope="col">Priority rank</th></tr></thead>${table}</table><div class="print-insights"><section><h3>Risk frequency heat map</h3><table class="print-heatmap">${heatmap}</table></section><section class="print-guide"><h3>Reading the results</h3><p>Risk score = Likelihood × Impact.</p><p>Low: 1–4 · Moderate: 5–9<br>High: 10–14 · Critical: 15–25</p><p>Heat map numbers count scored factors.<br>Priority 1 is the highest priority; every scored factor has a unique rank.</p><p>Equal scores: higher impact first, then likelihood, then listed factor order.</p><p>— indicates an incomplete result.</p></section></div>`;
 }
 
 function printAssessment(){
@@ -484,14 +480,7 @@ function printAssessment(){
  window.print();
 }
 
-$('location-name').addEventListener('input',event=>{current().location=event.target.value;});
-document.querySelectorAll('.location-tab').forEach(tab=>{
- tab.addEventListener('click',()=>switchLocation(tab.dataset.location));
- tab.addEventListener('keydown',event=>{
-  if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
-  event.preventDefault();const next=event.key==='Home'?'state':event.key==='End'?'country':selectedLocation==='state'?'country':'state';switchLocation(next);$(next+'-tab').focus();
- });
-});
+$('location-name').addEventListener('change',event=>{current().location=event.target.value;});
 $('category-tabs').addEventListener('click',event=>{const tab=event.target.closest('[data-category]');if(!tab)return;selectedGroup=tab.dataset.category;renderCategories();renderCards();$('category-tabs').querySelector(`[data-category="${selectedGroup}"]`).focus({preventScroll:true});});
 $('factor-cards').addEventListener('input',event=>{
  const {factor,field}=event.target.dataset;
@@ -515,15 +504,13 @@ $('guide-button').addEventListener('click',()=>$('guide-dialog').showModal());
 $('print-button').addEventListener('click',printAssessment);
 window.addEventListener('beforeprint',renderPrintReport);
 $('reset-button').addEventListener('click',()=>{
- $('reset-title').textContent=`Reset ${selectedLocation==='state'?'the state':'the country'} assessment?`;
- $('reset-description').textContent=`This clears this location’s name and scores. Your ${selectedLocation==='state'?'country':'state'} assessment stays as it is.`;
  $('reset-dialog').showModal();
 });
-$('confirm-reset').addEventListener('click',()=>{assessments[selectedLocation]=createAssessment();selectedCell=null;$('location-name').value='';$('reset-dialog').close();renderCards();announce('This location has been reset.');});
+$('confirm-reset').addEventListener('click',()=>{resetAssessment();$('reset-dialog').close();announce("U.S. State assessment has been reset.");});
 document.querySelectorAll('.close-dialog').forEach(button=>button.addEventListener('click',()=>button.closest('dialog').close()));
 document.querySelectorAll('dialog').forEach(dialog=>dialog.addEventListener('click',event=>{if(event.target!==dialog)return;const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}));
-window.addEventListener('pageshow',event=>{if(event.persisted){assessments={state:createAssessment(),country:createAssessment()};selectedCell=null;document.querySelectorAll('dialog[open]').forEach(dialog=>dialog.close());$('print-report').replaceChildren();switchLocation('state');}});
-renderDefinitions();renderCategories();switchLocation('state');
+window.addEventListener('pageshow',event=>{if(event.persisted){document.querySelectorAll('dialog[open]').forEach(dialog=>dialog.close());$('print-report').replaceChildren();resetAssessment();}});
+renderDefinitions();renderCategories();renderCards();
 
 </script>
 </head>
@@ -531,8 +518,8 @@ renderDefinitions();renderCategories();switchLocation('state');
   <a class="skip-link" href="#assessment">Skip to assessment</a>
   <main class="page-shell">
     <header class="intro" aria-labelledby="page-title">
-      <div><p class="eyebrow">AI FACILITY · LOCATION &amp; ENERGY DECISIONS</p><h1 id="page-title">AI Facility Risk Analysis</h1>
-      <p class="intro-copy">Assess 16 decision factors for your assigned U.S. state and country. Rate likelihood and impact, then use the risk heat map and priority rankings to support your recommendation.</p></div>
+      <div><p class="eyebrow">AI FACILITY · LOCATION &amp; ENERGY DECISIONS</p><h1 id="page-title">AI Facility Risk Analysis — U.S. State</h1>
+      <p class="intro-copy">Assess 16 decision factors for your assigned U.S. state. Rate likelihood and impact, then use the risk heat map and priority rankings to support your recommendation.</p></div>
       <div class="hero-count" aria-label="16 decision factors"><strong>16</strong><span>decision factors</span></div>
     </header>
 
@@ -545,15 +532,12 @@ renderDefinitions();renderCategories();switchLocation('state');
     </div>
 
     <section class="workspace-bar" aria-label="Assessment location">
-      <div class="location-tabs" role="tablist" aria-label="Location type">
-        <button type="button" class="location-tab active" id="state-tab" data-location="state" role="tab" aria-selected="true" aria-controls="assessment"><span aria-hidden="true">◈</span> U.S. state <span class="tab-count" id="state-count">0/16</span></button>
-        <button type="button" class="location-tab" id="country-tab" data-location="country" role="tab" aria-selected="false" aria-controls="assessment" tabindex="-1"><span aria-hidden="true">◎</span> Country <span class="tab-count" id="country-count">0/16</span></button>
-      </div>
-      <div class="workspace-actions"><span class="print-scope" id="print-scope">Current location · all 16 factors</span><button class="outline-button" id="print-button" aria-describedby="print-scope"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7V2h10v5M5 14H3V7h14v7h-2M5 11h10v7H5zM14 9h1"/></svg> Print / Save PDF</button></div>
+      <div class="assessment-scope" aria-label="U.S. State assessment"><span aria-hidden="true">◈</span><strong>U.S. State assessment</strong><span class="tab-count" id="scope-count">0/16</span></div>
+      <div class="workspace-actions"><span class="print-scope" id="print-scope">U.S. State · all 16 factors</span><button class="outline-button" id="print-button" aria-describedby="print-scope"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7V2h10v5M5 14H3V7h14v7h-2M5 11h10v7H5zM14 9h1"/></svg> Print / Save PDF</button></div>
     </section>
 
     <section class="assessment-overview" aria-label="Assessment overview">
-      <div class="location-field"><label id="location-label" for="location-name">Assigned U.S. state</label><input id="location-name" type="text" maxlength="100" autocomplete="off" placeholder="Enter your state" spellcheck="false"></div>
+      <div class="location-field"><label id="location-label" for="location-name">Assigned U.S. state</label><select id="location-name" autocomplete="off"><option value="">Select a state</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Maryland">Maryland</option><option value="New York">New York</option><option value="South Dakota">South Dakota</option><option value="Texas">Texas</option><option value="West Virginia">West Virginia</option></select></div>
       <div class="overview-divider"></div>
       <div class="metric"><span>Factors scored</span><strong><b id="completed-count">0</b><small> / 16</small></strong><div class="progress-track"><div id="progress-fill"></div></div></div>
       <div class="metric"><span>Critical risks</span><strong id="critical-count">0</strong><small>Score of 15–25</small></div>
@@ -561,8 +545,8 @@ renderDefinitions();renderCategories();switchLocation('state');
     </section>
 
     <div class="workspace-layout">
-      <section class="assessment-panel" id="assessment" role="tabpanel" aria-labelledby="state-tab" tabindex="-1">
-        <div class="section-heading"><div><p class="eyebrow">THE ASSESSMENT</p><h2>Score your decision factors</h2></div><span class="input-key"><i></i> Your inputs</span></div>
+      <section class="assessment-panel" id="assessment" aria-labelledby="assessment-heading" tabindex="-1">
+        <div class="section-heading"><div><p class="eyebrow">THE ASSESSMENT</p><h2 id="assessment-heading">Score your decision factors</h2></div><span class="input-key"><i></i> Your inputs</span></div>
         <div class="category-tabs" id="category-tabs" role="group" aria-label="Decision factor category"></div>
         <div class="category-description"><span id="category-description"></span><span id="category-progress"></span></div>
         <div id="factor-cards"></div>
@@ -581,18 +565,17 @@ renderDefinitions();renderCategories();switchLocation('state');
           <div class="score-key"><span><i class="low-dot"></i> Low <b>1–4</b></span><span><i class="moderate-dot"></i> Moderate <b>5–9</b></span><span><i class="high-dot"></i> High <b>10–14</b></span><span><i class="critical-dot"></i> Critical <b>15–25</b></span></div>
         </section>
         <section class="insight-card priority-card" aria-labelledby="priorities-title"><div class="insight-title"><span class="priority-icon" aria-hidden="true">↗</span><h2 id="priorities-title">Highest priority</h2></div><div id="priority-list"></div></section>
-        <p class="sidebar-note"><span aria-hidden="true">ⓘ</span> Higher scores indicate greater risk. Tied scores share the same priority rank.</p>
+        <p class="sidebar-note"><span aria-hidden="true">ⓘ</span> Priority ranks are unique. Higher scores rank first. Equal scores use higher impact, then likelihood, then listed factor order.</p>
       </aside>
     </div>
-    <footer class="page-footer"><span>AI Energy Lab <span aria-hidden="true">/</span> Risk Analysis</span><button class="text-button" id="reset-button">↻ Reset this location</button></footer>
+    <footer class="page-footer"><span>AI Energy Lab <span aria-hidden="true">/</span> Risk Analysis</span><button class="text-button" id="reset-button">↻ Reset state assessment</button></footer>
   </main>
 
-  <dialog id="guide-dialog" aria-labelledby="guide-title"><div class="dialog-heading"><p class="eyebrow">SCORING GUIDE</p><button class="close-dialog" aria-label="Close scoring guide">×</button></div><h2 id="guide-title">Score each decision factor.</h2><p>For each decision factor, consider your assigned location and choose likelihood and impact from 1 to 5. The risk score, priority ranking, and heat map update automatically.</p><div class="guide-columns"><section><h3>Likelihood</h3><ol><li><strong>Very low</strong> — Rare or unlikely</li><li><strong>Low</strong> — Possible but not expected</li><li><strong>Moderate</strong> — Reasonably possible</li><li><strong>High</strong> — Likely</li><li><strong>Very high</strong> — Very likely</li></ol></section><section><h3>Impact</h3><ol><li><strong>Minimal</strong> — Small effect on success</li><li><strong>Minor</strong> — Manageable effect</li><li><strong>Moderate</strong> — Meaningful effect</li><li><strong>Major</strong> — Serious effect</li><li><strong>Critical</strong> — Could prevent success</li></ol></section></div><div class="formula-note"><strong>Risk score = Likelihood × Impact</strong><span>The heat map counts scored factors. Priority 1 is the highest score.</span></div><p class="dialog-footnote">Each visitor works independently. Your entries reset on reload. Use Print / Save PDF to keep all 16 factors for the current location, then choose Save as PDF in your browser’s print dialog.</p></dialog>
-  <dialog id="definitions-dialog" aria-labelledby="definitions-title"><div class="dialog-heading"><p class="eyebrow">REFERENCE</p><button class="close-dialog" aria-label="Close factor definitions">×</button></div><h2 id="definitions-title">Decision factors & definitions</h2><p>Four categories. Sixteen factors to consider in both location assessments.</p><div id="definitions-content"></div></dialog>
-  <dialog id="reset-dialog" class="small-dialog" aria-labelledby="reset-title"><div class="dialog-heading"><p class="eyebrow">START FRESH</p><button class="close-dialog" aria-label="Cancel reset">×</button></div><h2 id="reset-title">Reset this location?</h2><p id="reset-description">This clears the location name and scores for this assessment.</p><div class="dialog-actions"><button class="outline-button close-dialog">Keep working</button><button id="confirm-reset" class="primary-button">Reset location</button></div></dialog>
-  <section id="print-report" class="print-report" aria-label="Printable risk assessment"></section>
+  <dialog id="guide-dialog" aria-labelledby="guide-title"><div class="dialog-heading"><p class="eyebrow">SCORING GUIDE</p><button class="close-dialog" aria-label="Close scoring guide">×</button></div><h2 id="guide-title">Score each decision factor.</h2><p>For each decision factor, consider your assigned U.S. state and choose likelihood and impact from 1 to 5. The risk score, priority ranking, and heat map update automatically.</p><div class="guide-columns"><section><h3>Likelihood</h3><ol><li><strong>Very low</strong> — Rare or unlikely</li><li><strong>Low</strong> — Possible but not expected</li><li><strong>Moderate</strong> — Reasonably possible</li><li><strong>High</strong> — Likely</li><li><strong>Very high</strong> — Very likely</li></ol></section><section><h3>Impact</h3><ol><li><strong>Minimal</strong> — Small effect on success</li><li><strong>Minor</strong> — Manageable effect</li><li><strong>Moderate</strong> — Meaningful effect</li><li><strong>Major</strong> — Serious effect</li><li><strong>Critical</strong> — Could prevent success</li></ol></section></div><div class="formula-note"><strong>Risk score = Likelihood × Impact</strong><span>The heat map counts scored factors. Priority ranks are unique from 1–16 when all factors are scored.</span></div><p class="dialog-footnote">Equal risk scores are ordered by higher impact, then higher likelihood, then listed factor order. Risk scores remain likelihood × impact; each scored factor receives its own priority rank.</p><p class="dialog-footnote">Each visitor works independently. Your entries reset on reload. Use Print / Save PDF to keep all 16 factors for this state assessment, then choose Save as PDF in your browser’s print dialog.</p></dialog>
+  <dialog id="definitions-dialog" aria-labelledby="definitions-title"><div class="dialog-heading"><p class="eyebrow">REFERENCE</p><button class="close-dialog" aria-label="Close factor definitions">×</button></div><h2 id="definitions-title">Decision factors & definitions</h2><p>Four categories. Sixteen factors to consider for your assigned U.S. state.</p><div id="definitions-content"></div></dialog>
+  <dialog id="reset-dialog" class="small-dialog" aria-labelledby="reset-title"><div class="dialog-heading"><p class="eyebrow">START FRESH</p><button class="close-dialog" aria-label="Cancel reset">×</button></div><h2 id="reset-title">Reset the state assessment?</h2><p id="reset-description">This clears the state name and all 16 factors’ scores in this assessment.</p><div class="dialog-actions"><button class="outline-button close-dialog">Keep working</button><button id="confirm-reset" class="primary-button">Reset state assessment</button></div></dialog>
+  <section id="print-report" class="print-report" aria-label="Printable state risk assessment"></section>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <noscript><p class="noscript">Enable JavaScript to use the risk assessment tool.</p></noscript>
 </body>
 </html>
-
